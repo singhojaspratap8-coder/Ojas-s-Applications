@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ojas Applications | Official App Hub</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #07080a;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        /* Background Glow Effect */
+        .bg-glow {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, #00f2fe20, #4facfe20);
+            filter: blur(100px);
+            z-index: -1;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        header {
+            text-align: center;
+            margin: 40px 0 20px;
+        }
+
+        header .badge {
+            display: inline-block;
+            background: rgba(0, 242, 254, 0.1);
+            color: #00f2fe;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            border: 1px solid rgba(0, 242, 254, 0.3);
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, #00f2fe, #4facfe, #00c6ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            color: #94a3b8;
+            font-size: 1rem;
+            margin-top: 10px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 950px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 20px 0;
+        }
+
+        /* Glassmorphism Card Style */
+        .app-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .app-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 242, 254, 0.15);
+            border-color: rgba(0, 242, 254, 0.4);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .app-icon {
+            font-size: 3.2rem;
+            color: #00f2fe;
+            margin-bottom: 20px;
+        }
+
+        .app-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #f8fafc;
+        }
+
+        .app-desc {
+            font-size: 0.92rem;
+            color: #94a3b8;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+            color: #07080a;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 242, 254, 0.3);
+        }
+
+        .download-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 242, 254, 0.5);
+        }
+
+        /* Support / UPI Section */
+        .support-section {
+            width: 100%;
+            max-width: 950px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            margin: 20px 0 40px;
+        }
+
+        .support-section h3 {
+            font-size: 1.3rem;
+            color: #00f2fe;
+            margin-bottom: 10px;
+        }
+
+        .support-section p {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            margin-bottom: 15px;
+        }
+
+        .upi-box {
+            display: inline-block;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px dashed rgba(0, 242, 254, 0.4);
+            padding: 10px 20px;
+            border-radius: 12px;
+            font-family: monospace;
+            font-size: 1.1rem;
+            color: #00f2fe;
+            letter-spacing: 1px;
+        }
+
+        footer {
+            margin-top: auto;
+            color: #64748b;
+            font-size: 0.85rem;
+            padding: 20px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            width: 100%;
+            max-width: 950px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-glow"></div>
+
+    <header>
+        <div class="badge"><i class="fa-solid fa-fire"></i> Powered by Ojas Pratap Singh</div>
+        <h1>Ojas Applications</h1>
+        <p>Next-Gen Android Utilities & Custom Open-Source Apps</p>
+    </header>
+
+    <div class="container">
+        <!-- App Card 1: LocalDrop -->
+        <div class="app-card">
+            <div class="app-icon"><i class="fa-solid fa-share-nodes"></i></div>
+            <div class="app-title">LocalDrop</div>
+            <div class="app-desc">Lightning-fast local file sharing tool built for smooth cross-device transfers without mobile data.</div>
+            <a href="APEX_LINK_YAHA_DAALEIN_1" class="download-btn"><i class="fa-solid fa-download"></i> Download APK</a>
+        </div>
+
+        <!-- App Card 2: MP0002 -->
+        <div class="app-card">
+            <div class="app-icon"><i class="fa-solid fa-code"></i></div>
+            <div class="app-title">MP0002 Utility</div>
+            <div class="app-desc">Advanced text encoding and decoding utility optimized for high-performance mobile command lines.</div>
+            <a href="APEX_LINK_YAHA_DAALEIN_2" class="download-btn"><i class="fa-solid fa-download"></i> Download APK</a>
+        </div>
+    </div>
+
+    <!-- UPI Support Section -->
+    <div class="support-section">
+        <h3><i class="fa-solid fa-mug-hot"></i> Support Ojas's Work</h3>
+        <p>Agar aapko hamari apps pasand aati hain, toh aap support ke liye donate kar sakte hain:</p>
+        <div class="upi-box">
+            <i class="fa-solid fa-wallet"></i> UPI ID: <span style="color: #fff;">singh.ojaspratap8@gmail.com</span>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 Ojas Pratap Singh. Crafted with passion & code.
+    </footer>
+
+</body>
+</html>

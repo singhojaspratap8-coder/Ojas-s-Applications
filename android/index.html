@@ -18,7 +18,7 @@
         }
 
         body {
-            background-color: #07080a;
+            background-color: #050507;
             color: #ffffff;
             min-height: 100vh;
             display: flex;
@@ -26,100 +26,135 @@
             align-items: center;
             padding: 20px;
             overflow-x: hidden;
+            position: relative;
         }
 
-        /* Background Glow Effect */
-        .bg-glow {
+        /* Background Glowing Orbs for Cool Vibe */
+        .glow-sphere-1 {
             position: absolute;
-            width: 300px;
-            height: 300px;
-            background: linear-gradient(135deg, #00f2fe20, #4facfe20);
-            filter: blur(100px);
+            width: 350px;
+            height: 350px;
+            background: linear-gradient(135deg, rgba(0, 242, 254, 0.15), rgba(79, 172, 254, 0.15));
+            filter: blur(120px);
             z-index: -1;
-            top: 10%;
-            left: 50%;
-            transform: translateX(-50%);
+            top: 5%;
+            left: 10%;
+            border-radius: 50%;
+        }
+
+        .glow-sphere-2 {
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            background: linear-gradient(135deg, rgba(131, 58, 180, 0.15), rgba(253, 29, 29, 0.15));
+            filter: blur(120px);
+            z-index: -1;
+            bottom: 10%;
+            right: 10%;
+            border-radius: 50%;
         }
 
         header {
             text-align: center;
-            margin: 40px 0 20px;
+            margin: 40px 0 30px;
+            animation: fadeInDown 0.8s ease;
         }
 
         header .badge {
-            display: inline-block;
-            background: rgba(0, 242, 254, 0.1);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0, 242, 254, 0.08);
             color: #00f2fe;
-            padding: 6px 16px;
-            border-radius: 20px;
+            padding: 8px 18px;
+            border-radius: 30px;
             font-size: 0.85rem;
             font-weight: 600;
             margin-bottom: 15px;
             border: 1px solid rgba(0, 242, 254, 0.3);
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.1);
         }
 
         header h1 {
-            font-size: 2.8rem;
+            font-size: 3rem;
             font-weight: 800;
             background: linear-gradient(45deg, #00f2fe, #4facfe, #00c6ff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             letter-spacing: 1px;
+            margin-bottom: 10px;
         }
 
         header p {
             color: #94a3b8;
-            font-size: 1rem;
-            margin-top: 10px;
+            font-size: 1.05rem;
         }
 
         .container {
             width: 100%;
-            max-width: 950px;
+            max-width: 1000px;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
             gap: 25px;
-            padding: 20px 0;
+            padding: 10px 0 30px;
         }
 
         /* Glassmorphism Card Style */
         .app-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 20px;
-            padding: 30px;
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 24px;
+            padding: 35px 25px;
             text-align: center;
-            transition: all 0.4s ease;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             position: relative;
             overflow: hidden;
         }
 
+        .app-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #00f2fe, transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
         .app-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(0, 242, 254, 0.15);
-            border-color: rgba(0, 242, 254, 0.4);
-            background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 20px 40px rgba(0, 242, 254, 0.12);
+            border-color: rgba(0, 242, 254, 0.3);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .app-card:hover::before {
+            opacity: 1;
         }
 
         .app-icon {
-            font-size: 3.2rem;
+            font-size: 3.5rem;
             color: #00f2fe;
             margin-bottom: 20px;
+            text-shadow: 0 0 20px rgba(0, 242, 254, 0.4);
         }
 
         .app-title {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-weight: 700;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             color: #f8fafc;
         }
 
         .app-desc {
-            font-size: 0.92rem;
+            font-size: 0.93rem;
             color: #94a3b8;
             margin-bottom: 25px;
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
         .download-btn {
@@ -127,14 +162,14 @@
             align-items: center;
             gap: 10px;
             background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
-            color: #07080a;
-            padding: 12px 28px;
+            color: #050507;
+            padding: 12px 30px;
             border-radius: 30px;
             font-weight: 700;
             font-size: 0.95rem;
             text-decoration: none;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 242, 254, 0.3);
+            box-shadow: 0 5px 20px rgba(0, 242, 254, 0.25);
         }
 
         .download-btn:hover {
@@ -142,62 +177,68 @@
             box-shadow: 0 8px 25px rgba(0, 242, 254, 0.5);
         }
 
-        /* Support / UPI Section */
-        .support-section {
+        /* Custom App Request Banner (The "Bhai Wala" Feature) */
+        .request-banner {
             width: 100%;
-            max-width: 950px;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: 20px;
-            padding: 25px;
+            max-width: 1000px;
+            background: linear-gradient(135deg, rgba(0, 242, 254, 0.05), rgba(131, 58, 180, 0.05));
+            border: 1px dashed rgba(0, 242, 254, 0.3);
+            border-radius: 24px;
+            padding: 30px;
             text-align: center;
-            margin: 20px 0 40px;
+            margin: 10px 0 30px;
+            backdrop-filter: blur(10px);
         }
 
-        .support-section h3 {
-            font-size: 1.3rem;
+        .request-banner h3 {
+            font-size: 1.4rem;
             color: #00f2fe;
             margin-bottom: 10px;
         }
 
-        .support-section p {
-            font-size: 0.9rem;
-            color: #94a3b8;
+        .request-banner p {
+            font-size: 0.95rem;
+            color: #cbd5e1;
+            line-height: 1.6;
             margin-bottom: 15px;
         }
 
-        .upi-box {
+        .request-tag {
             display: inline-block;
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px dashed rgba(0, 242, 254, 0.4);
-            padding: 10px 20px;
+            background: rgba(0, 0, 0, 0.5);
+            color: #38bdf8;
+            padding: 8px 20px;
             border-radius: 12px;
-            font-family: monospace;
-            font-size: 1.1rem;
-            color: #00f2fe;
-            letter-spacing: 1px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(56, 189, 248, 0.2);
         }
 
         footer {
             margin-top: auto;
             color: #64748b;
             font-size: 0.85rem;
-            padding: 20px 0;
+            padding: 25px 0 10px;
             text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
             width: 100%;
-            max-width: 950px;
+            max-width: 1000px;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
 
-    <div class="bg-glow"></div>
+    <div class="glow-sphere-1"></div>
+    <div class="glow-sphere-2"></div>
 
     <header>
-        <div class="badge"><i class="fa-solid fa-fire"></i> Powered by Ojas Pratap Singh</div>
+        <div class="badge"><i class="fa-solid fa-code-branch"></i> Official Release Hub</div>
         <h1>Ojas Applications</h1>
-        <p>Next-Gen Android Utilities & Custom Open-Source Apps</p>
+        <p>High-Performance Android Utilities & Custom Open-Source Software</p>
     </header>
 
     <div class="container">
@@ -205,30 +246,30 @@
         <div class="app-card">
             <div class="app-icon"><i class="fa-solid fa-share-nodes"></i></div>
             <div class="app-title">LocalDrop</div>
-            <div class="app-desc">Lightning-fast local file sharing tool built for smooth cross-device transfers without mobile data.</div>
+            <div class="app-desc">Lightning-fast local file sharing utility built for seamless cross-device transfers without internet.</div>
             <a href="APEX_LINK_YAHA_DAALEIN_1" class="download-btn"><i class="fa-solid fa-download"></i> Download APK</a>
         </div>
 
         <!-- App Card 2: MP0002 -->
         <div class="app-card">
-            <div class="app-icon"><i class="fa-solid fa-code"></i></div>
+            <div class="app-icon"><i class="fa-solid fa-terminal"></i></div>
             <div class="app-title">MP0002 Utility</div>
-            <div class="app-desc">Advanced text encoding and decoding utility optimized for high-performance mobile command lines.</div>
+            <div class="app-desc">Advanced text encoding & decoding toolkit optimized specifically for mobile command-line environments.</div>
             <a href="APEX_LINK_YAHA_DAALEIN_2" class="download-btn"><i class="fa-solid fa-download"></i> Download APK</a>
         </div>
     </div>
 
-    <!-- UPI Support Section -->
-    <div class="support-section">
-        <h3><i class="fa-solid fa-mug-hot"></i> Support Ojas's Work</h3>
-        <p>Agar aapko hamari apps pasand aati hain, toh aap support ke liye donate kar sakte hain:</p>
-        <div class="upi-box">
-            <i class="fa-solid fa-wallet"></i> UPI ID: <span style="color: #fff;">singh.ojaspratap8@gmail.com</span>
+    <!-- Custom Request Banner -->
+    <div class="request-banner">
+        <h3><i class="fa-solid fa-laptop-code"></i> Kuch Alag Chahiye? App Banwayein!</h3>
+        <p>Tumhara bhai tumhari requirement ke mutabiq koi bhi legal utility ya custom tool design kar sakta hai.</p>
+        <div class="request-tag">
+            <i class="fa-solid fa-circle-check" style="color: #00f2fe;"></i> 100% Secure & Clean Code
         </div>
     </div>
 
     <footer>
-        &copy; 2026 Ojas Pratap Singh. Crafted with passion & code.
+        &copy; 2026 Ojas Pratap Singh. Crafted with passion, code & creativity.
     </footer>
 
 </body>
